@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Spring MVC Thymeleaf</title>
+</head>
+<body>
+
+	<h1>Spring MVC + Thymeleaf:Display Collection</h1>
+	<h2>Display List:</h2>
+	<ul th:if="${listUser !=null && !listUser.empty}">
+		<li th:each="user:${listUser}" th:text="${user.id} +'-'+${user.name}+'-'+ ${user.address}"> </li>
+	</ul>
+	<h2>Display Map:</h2>
+	<ul th:if="${mapUser !=null && !mapUser.empty}">
+		<li th:each="user:${mapUser}" th:text="${user.value.id}+'-'+${user.value.name}+'-'+ ${user.value.address}"> </li>
+ 	</ul>
+ 	<h2>Display Set:</h2>
+ 	<ul th:if="${setUser!=null && !setUser.empty}">
+ 		<li th:each="user: ${setUser}" th:text="${user.id} +'-'+ ${user.name}+'-'+ ${user.address}"> </li>
+ 	</ul>
+
+</body>
+</html>
